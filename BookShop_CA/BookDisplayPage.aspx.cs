@@ -14,17 +14,33 @@ namespace BookShop_CA
         Mybooks context = new Mybooks();
         protected void Page_Load(object sender, EventArgs e)
         {
+
             if (!IsPostBack)
             {
-                List<Book> temp = new List<Book>();
-                Session["CartList"] = temp;
+                if(Session["CartList"] != null)
+                {
+                    List<Book> temp = (List<Book>)Session["CartList"];
+                    Label1.Text = "number of books in cart : " + (temp.Count() + 0).ToString();
+
+
+                }
+                else
+                {
+                    List<Book> temp = new List<Book>();
+                    Session["CartList"] = temp;
+                    Label1.Text = "number of books in cart : " + (temp.Count() + 0).ToString();
+
+                }
+
             }
             else
             {
                 List<Book> temp = (List<Book>)Session["CartList"];
 
                 // Gotta direct this to the navbar at the top, specifically at the cart qty
-                txtSearchField.Text = (temp.Count() + 1).ToString();
+                //txtSearchField.Text = (temp.Count() + 1).ToString();
+               Label1.Text =  "number of books in cart : "+(temp.Count() + 1).ToString();
+
             }
         }
 

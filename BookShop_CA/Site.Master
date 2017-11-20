@@ -41,19 +41,14 @@
             padding: 15px;
         }
 
-        .auto-style1 {
-            width: 194px;
-        }
-
-        .auto-style2 {
-            width: 246px;
-            height: 71px;
-        }
-
         .auto-style4 {
             text-align: left;
             font-family: Arial, Helvetica, sans-serif;
             font-size: xx-large;
+        }
+
+        .auto-style5 {
+            width: 147px;
         }
     </style>
 
@@ -61,7 +56,7 @@
 
 <body>
     <form id="form1" runat="server">
-        <nav class="navbar navbar-inverse">
+        <nav class="navbar navbar-inverse ">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <a class="navbar-brand" href="#">Howdy, Bookworm!</a>
@@ -70,19 +65,30 @@
                     <li><a href="<%= Page.ResolveUrl("~/default.aspx") %>">Home</a></li>
                     <li><a href="<%= Page.ResolveUrl("~/BookDisplayPage.aspx") %>">Books</a></li>
                     <li><a href="<%= Page.ResolveUrl("~/ShoppingCart.aspx") %>">View Cart</a></li>
+                    <li id="signup_menu" runat="server"><a href="<%= Page.ResolveUrl("~/SignUp.aspx") %>">Register</a></li>
                     <li id="owner" visible="false" runat="server"><a href="<%= Page.ResolveUrl("~/secret/UpdateInventory.aspx") %>">Update Inventory</a></li>
-                    <li><a href="<%= Page.ResolveUrl("~/login.aspx") %>">Log in</a></li>
+                    <li id="login_menu" runat="server"><a href="<%= Page.ResolveUrl("~/login.aspx") %>">Log in</a></li>
                 </ul>
             </div>
         </nav>
+
         <div class="col-xs-12">
-            <table>
+            <table style="width: 100%">
                 <tr>
-
-
                     <td class="auto-style4">SA45 ASP.NET</td>
+                    <td>
+                        <asp:Label ID="Label_user" runat="server" Text="guest user" Style="text-align: right"></asp:Label>
+                    </td>
+                    <td class="auto-style5">
+                        <asp:LinkButton ID="LinkButton_logout" Visible="false" runat="server" OnClick="LinkButton_logout_Click">Log out</asp:LinkButton>
+                    </td>
                 </tr>
             </table>
+        </div>
+        <div  style="text-align: center">
+            <img src="~/Images/logo.png" runat="server" />
+
+
         </div>
 
 

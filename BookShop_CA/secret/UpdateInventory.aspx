@@ -3,13 +3,13 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
     <div>
-        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False"
+        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" Width="100%"
             DataKeyNames="BookID"
             OnRowCancelingEdit="GridView1_RowCancelingEdit"
             OnRowDataBound="GridView1_RowDataBound"
             OnRowDeleting="GridView1_RowDeleting"
             OnRowEditing="GridView1_RowEditing"
-            OnRowUpdating="GridView1_RowUpdating">
+            OnRowUpdating="GridView1_RowUpdating" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" ForeColor="Black" CellSpacing="2">
             <Columns>
                 <asp:TemplateField AccessibleHeaderText="BookID" HeaderText="Book ID">
                     <ItemTemplate>
@@ -64,8 +64,18 @@
                         <asp:Label ID="lblPrice" runat="server" Text='<%# Eval("Price") %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:CommandField ShowEditButton="True" ButtonType="Button" ShowDeleteButton="True" />
+                <asp:CommandField ShowEditButton="True" ButtonType="Button" ShowDeleteButton="True"  />
             </Columns>
+
+            <FooterStyle BackColor="#CCCCCC" />
+            <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
+            <PagerStyle BackColor="#CCCCCC" ForeColor="Black" HorizontalAlign="Left" />
+            <RowStyle BackColor="White" />
+            <SelectedRowStyle BackColor="#000099" Font-Bold="True" ForeColor="White" />
+            <SortedAscendingCellStyle BackColor="#F1F1F1" />
+            <SortedAscendingHeaderStyle BackColor="#808080" />
+            <SortedDescendingCellStyle BackColor="#CAC9C9" />
+            <SortedDescendingHeaderStyle BackColor="#383838" />
 
         </asp:GridView>
     </div>

@@ -2,13 +2,14 @@
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <div>
-        <asp:TextBox ID="txtSearchField" runat="server" Font-Size="X-Large" Width="436px"></asp:TextBox>
+    <div style="text-align:right">
+        <%--<asp:TextBox ID="txtSearchField" runat="server" Font-Size="X-Large" Width="436px"></asp:TextBox>--%>
+        <asp:Label ID="Label1" runat="server" Text="" ></asp:Label>
         <%--<asp:Button ID="btnSearch" runat="server" Text="Button" BorderStyle="None" Height="47px" OnClick="btnSearch_Click" Width="89px" />--%>
     </div>
     <div>
         <asp:ListView ID="bookList" runat="server" 
-                DataKeyNames="BookID" GroupItemCount="4"
+                DataKeyNames="BookID" GroupItemCount="6"
                 ItemType="BookShop_CA.Models.Book" SelectMethod="GetBooks">
                 <EmptyDataTemplate>
                     <table runat="server">

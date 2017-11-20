@@ -1,25 +1,13 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="BookShop_CA.login" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="SignUp.aspx.cs" Inherits="BookShop_CA.SignUp" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-    <div class="text-right" style="width: 100%">
-        <asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click" Visible="False">Sign up</asp:LinkButton>
-    </div>
 
-    <div class="col-xs-12">
-        <div style="width: 400px; margin-left: auto; margin-right: auto;">
-                <asp:Login ID="Login1" runat="server" Width="360px" TextLayout="TextOnTop" Orientation="Vertical" DisplayRememberMe="False" TitleText="">
-                <LoginButtonStyle CssClass="btn" Width="150px" Font-Size="Medium" BorderColor="#333333" />
 
-                <TextBoxStyle CssClass="form-control" />
-            </asp:Login>
-        </div>
-    </div>
-
-    <div class="col-xs-12">
+     <div class="col-xs-12">
         <div style="width: 400px; margin-left: auto; margin-right: auto;">
 
-            <asp:CreateUserWizard ID="CreateUserWizard1" runat="server" TextBoxStyle-CssClass="form-control" TextBoxStyle-Width="100%" Visible="False" Height="460px" Width="360px" FinishDestinationPageUrl="~/login.aspx" CancelDestinationPageUrl="~/login.aspx" DisplayCancelButton="True" OnContinueButtonClick="CreateUserWizard1_ContinueButtonClick" OnCreatedUser="CreateUserWizard1_CreatedUser" CancelButtonStyle-CssClass="btn">
+            <asp:CreateUserWizard ID="CreateUserWizard1" runat="server" TextBoxStyle-CssClass="form-control" TextBoxStyle-Width="100%" Height="460px" Width="360px" FinishDestinationPageUrl="~/login.aspx" CancelDestinationPageUrl="~/login.aspx" DisplayCancelButton="True" OnContinueButtonClick="CreateUserWizard1_ContinueButtonClick" OnCreatedUser="CreateUserWizard1_CreatedUser" CancelButtonStyle-CssClass="btn">
                 <ContinueButtonStyle CssClass="btn" />
                 <CreateUserButtonStyle CssClass="btn" Width="100px" BorderColor="#333333" />
                 <TextBoxStyle CssClass="form-control" Width="100%"></TextBoxStyle>
@@ -95,5 +83,5 @@
             </asp:CreateUserWizard>
 
         </div>
-    </div>
+</div>
 </asp:Content>
