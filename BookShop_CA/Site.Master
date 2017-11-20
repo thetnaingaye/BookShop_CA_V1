@@ -1,0 +1,109 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="BookShop_CA.Site" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - BookShop ASP.NET</title>
+
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <%--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css" />--%>
+
+
+
+    <!-- jQuery library -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style>
+        /* Remove the navbar's default margin-bottom and rounded borders */
+        .navbar {
+            margin-bottom: 0;
+            border-radius: 0;
+        }
+
+        /* Set black background color, white text and some padding */
+        footer {
+            background-color: white;
+            color: black;
+            padding: 15px;
+        }
+
+        .auto-style1 {
+            width: 194px;
+        }
+
+        .auto-style2 {
+            width: 246px;
+            height: 71px;
+        }
+
+        .auto-style4 {
+            text-align: left;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: xx-large;
+        }
+    </style>
+
+</head>
+
+<body>
+    <form id="form1" runat="server">
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Howdy, Bookworm!</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li><a href="<%= Page.ResolveUrl("~/default.aspx") %>">Home</a></li>
+                    <li><a href="<%= Page.ResolveUrl("~/BookDisplayPage.aspx") %>">Books</a></li>
+                    <li><a href="<%= Page.ResolveUrl("~/ShoppingCart.aspx") %>">View Cart</a></li>
+                    <li id="owner" visible="false" runat="server"><a href="<%= Page.ResolveUrl("~/secret/UpdateInventory.aspx") %>">Update Inventory</a></li>
+                    <li><a href="<%= Page.ResolveUrl("~/login.aspx") %>">Log in</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="col-xs-12">
+            <table>
+                <tr>
+
+
+                    <td class="auto-style4">SA45 ASP.NET</td>
+                </tr>
+            </table>
+        </div>
+
+
+        <div class="container panel-body">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+            <footer>
+                <br />
+                <hr />
+                <p>&copy; <%: DateTime.Now.Year %> - BookShop Pte Ltd - V0.1</p>
+            </footer>
+
+        </div>
+
+
+    </form>
+
+
+
+
+
+
+</body>
+</html>
