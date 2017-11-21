@@ -12,7 +12,11 @@ namespace BookShop_CA
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+           if(User.Identity.IsAuthenticated)
+            {
+                System.Web.Security.FormsAuthentication.SignOut();
+                Response.Redirect("login.aspx");
+            }
         }
 
         protected void Login1_Authenticate(object sender, AuthenticateEventArgs e)

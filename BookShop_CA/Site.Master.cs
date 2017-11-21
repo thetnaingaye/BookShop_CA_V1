@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Security.Principal;
 using System.Security;
+using BookShop_CA.Models;
 
 namespace BookShop_CA
 {
@@ -13,14 +14,24 @@ namespace BookShop_CA
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-          if(Page.User.IsInRole("owner"))
+            if (Session["CartList"] != null)
+            {
+                List<Book> temp = (List<Book>)Session["CartList"];
+                int count = temp.Count;
+                if (Page.IsPostBack)
+                    Label_cartitem.Text = String.Format("({0})", count + 1);
+                Label_cartitem.Text = count.ToString();
+            }
+
+            if (Page.User.IsInRole("owner"))
             {
                 owner.Visible = true;
                 owner_addbook.Visible = true;
+                owner_setdiscount.Visible = true;
                 login_menu.Visible = false;
                 signup_menu.Visible = false;
                 Label_user.Text = "You are currently logged in as owner role : " + Page.User.Identity.Name;
-                LinkButton_logout.Visible = true;
+                logout_menu.Visible = true;
 
 
             }
@@ -29,7 +40,7 @@ namespace BookShop_CA
                 login_menu.Visible = false;
                 signup_menu.Visible = false;
                 Label_user.Text = "You are currently logged in as user role : " + Page.User.Identity.Name;
-                LinkButton_logout.Visible = true;
+                logout_menu.Visible = true;
             }
             else
             {
@@ -37,14 +48,13 @@ namespace BookShop_CA
                 login_menu.Visible = true;
                 signup_menu.Visible = true;
                 Label_user.Visible = false;
+                logout_menu.Visible = false;
             }
 
         }
 
         protected void LinkButton_logout_Click(object sender, EventArgs e)
         {
-            System.Web.Security.FormsAuthentication.SignOut();
-            Response.Redirect("login.aspx");
         }
     }
 }

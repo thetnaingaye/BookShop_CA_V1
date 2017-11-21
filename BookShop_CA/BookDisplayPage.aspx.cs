@@ -17,10 +17,10 @@ namespace BookShop_CA
 
             if (!IsPostBack)
             {
-                if(Session["CartList"] != null)
+                if (Session["CartList"] != null)
                 {
                     List<Book> temp = (List<Book>)Session["CartList"];
-                    Label1.Text = "number of books in cart : " + (temp.Count() + 0).ToString();
+                    //    Label1.Text = "number of books in cart : " + (temp.Count() + 0).ToString();
 
 
                 }
@@ -28,7 +28,7 @@ namespace BookShop_CA
                 {
                     List<Book> temp = new List<Book>();
                     Session["CartList"] = temp;
-                    Label1.Text = "number of books in cart : " + (temp.Count() + 0).ToString();
+                    //    Label1.Text = "number of books in cart : " + (temp.Count() + 0).ToString();
 
                 }
 
@@ -39,7 +39,7 @@ namespace BookShop_CA
 
                 // Gotta direct this to the navbar at the top, specifically at the cart qty
                 //txtSearchField.Text = (temp.Count() + 1).ToString();
-               Label1.Text =  "number of books in cart : "+(temp.Count() + 1).ToString();
+               //Label1.Text =  "number of books in cart : "+(temp.Count() + 1).ToString();
 
             }
         }

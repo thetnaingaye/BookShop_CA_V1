@@ -21,5 +21,12 @@ namespace BookShop_CA.Models
 
         [StringLength(64)]
         public string CustomerName { get; set; }
+
+        public string Address { get; set; }
+
+        [StringLength(10)]
+        public string ContactNumber { get; set; }
+
+        public DateTime? DateOfPurchase { get; set; }
     }
 }

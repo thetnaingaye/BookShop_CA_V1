@@ -112,7 +112,8 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="secret\AddBook.aspx" />
-    <Content Include="secret\CheckOut.aspx" />
+    <Content Include="secret\Checkout.aspx" />
+    <Content Include="secret\CheckoutSuccessful.aspx" />
     <Content Include="ShoppingCart.aspx" />
     <Content Include="SignUp.aspx" />
     <Content Include="Site.Master" />
@@ -253,12 +254,19 @@
     <Compile Include="secret\AddBook.aspx.designer.cs">
       <DependentUpon>AddBook.aspx</DependentUpon>
     </Compile>
-    <Compile Include="secret\CheckOut.aspx.cs">
-      <DependentUpon>CheckOut.aspx</DependentUpon>
+    <Compile Include="secret\Checkout.aspx.cs">
+      <DependentUpon>Checkout.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="secret\CheckOut.aspx.designer.cs">
-      <DependentUpon>CheckOut.aspx</DependentUpon>
+    <Compile Include="secret\Checkout.aspx.designer.cs">
+      <DependentUpon>Checkout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="secret\CheckoutSuccessful.aspx.cs">
+      <DependentUpon>CheckoutSuccessful.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="secret\CheckoutSuccessful.aspx.designer.cs">
+      <DependentUpon>CheckoutSuccessful.aspx</DependentUpon>
     </Compile>
     <Compile Include="secret\Sales.aspx.cs">
       <DependentUpon>Sales.aspx</DependentUpon>

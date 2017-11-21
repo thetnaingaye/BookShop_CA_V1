@@ -16,6 +16,11 @@ namespace BookShop_CA
             if (!IsPostBack)
             {
                 BindGrid();
+                if(Session["CartList"] == null)
+                {
+                    BtnCheckout.Visible = false;
+                    LabelStatus.Text = "There is no item in shopping cart. Please visit book page to add items to cart";
+                }
             }
 
         }

@@ -103,25 +103,36 @@ namespace BookShop_CA.Models
             return bookList;
         }
 
-        public static void AddTransaction(List<Book> shoppingCart, string firstName, string lastName)
+        public static void AddTransaction(List<Book> shoppingCart, string firstName, string lastName, string address, string contactNum)
         {
             using (Mybooks entities = new Mybooks())
             {
 
                 foreach (Book b in shoppingCart)
                 {
+                    Transaction transaction = new Transaction();
                     int transID = entities.Transactions.OrderByDescending(x => x.TransID).Select(x => x.TransID).First();
-                    int newTransID = transID + 1;
-                    int bookId = b.BookID;
-                    string bOOKTitle = b.Title;
-                    decimal Price = b.Price;
-                    DateTime date = DateTime.Today;
-                    string customerName = firstName + "" + lastName;
+                    int newTransID = transID + 1; ;
+                    Transaction t = new Transaction
+                    {
+                        TransID = newTransID,
+                        BookID = b.BookID,
+                        BookTitle = b.Title,
+                        Price = b.Price,
+                        DateOfPurchase = DateTime.Today,
+                        Address = address,
+                        CustomerName = firstName + " " + lastName,
+                        ContactNumber = contactNum
+
+                    };
+                    Mybooks context = new Mybooks();
+                    context.Transactions.Add(t);
+                    context.SaveChanges();
 
 
                 }
-            }
 
+            }
 
         }
     }

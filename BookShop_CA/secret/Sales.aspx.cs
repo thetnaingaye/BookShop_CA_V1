@@ -16,7 +16,6 @@ namespace BookShop_CA.secret
             if (!IsPostBack)
             {
                 GetData();
-                prevPage = Request.UrlReferrer.ToString();
             }
         }
 
@@ -35,13 +34,22 @@ namespace BookShop_CA.secret
         {
             DateTime startDate = CalStartDate.SelectedDate;
             DateTime endDate = CalEndDate.SelectedDate;
-            double discountRate = Double.Parse(TxtBoxDiscount.Text);
-            BusinessLogic.UpdateDiscount(startDate, endDate, discountRate);
+            if(endDate <= startDate)
+            {
+                LabelStatus.Text = string.Format("Error! End Date cannot occur before Start Date.");
+            }
+            else
+            {
+                double discountRate = Double.Parse(TxtBoxDiscount.Text);
+                BusinessLogic.UpdateDiscount(startDate, endDate, discountRate);
+                LabelStatus.Text = string.Format("Update Success! Storewide Discount of "+"<span style='font-weight:bold'>" + " {0}% " + "</span>" + "will occur between " + "<span style='font-weight:bold'>" +" {1}" + "</span>" + " till" + "<span style='font-weight:bold'>" + " {2}" + "</span>", discountRate, startDate.Date, endDate.Date);
+            }
+
         }
 
         protected void BtnCancel_Click(object sender, EventArgs e)
         {
-            Response.Redirect(prevPage);
+                Response.Redirect(prevPage);
         }
     }
 }

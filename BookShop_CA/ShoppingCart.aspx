@@ -54,6 +54,7 @@
             <SortedDescendingHeaderStyle BackColor="#242121" />
     </asp:GridView>
     <asp:Button ID="BtnCheckout" runat="server" Text="Checkout" OnClick="BtnCheckout_Click" />
+        <asp:Label ID="LabelStatus" runat="server" forecolor="red" Text=""></asp:Label>
     </div>
 </asp:Content>
 

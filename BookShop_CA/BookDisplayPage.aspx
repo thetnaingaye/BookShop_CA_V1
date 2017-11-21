@@ -4,7 +4,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div style="text-align:right">
         <%--<asp:TextBox ID="txtSearchField" runat="server" Font-Size="X-Large" Width="436px"></asp:TextBox>--%>
-        <asp:Label ID="Label1" runat="server" Text="" ></asp:Label>
+<%--        <asp:Label ID="Label1" runat="server" Text="" ></asp:Label>--%>
         <%--<asp:Button ID="btnSearch" runat="server" Text="Button" BorderStyle="None" Height="47px" OnClick="btnSearch_Click" Width="89px" />--%>
     </div>
     <div>
@@ -66,7 +66,7 @@
                         <tbody>
                             <tr runat="server">
                                 <td runat="server">
-                                    <table id="groupPlaceholderContainer" runat="server" style="width:100%">
+                                    <table id="groupPlaceholderContainer" runat="server" style="width:100%" class="table table-bordered">
                                         <tr id="groupPlaceholder" runat="server"></tr>
                                     </table>
                                 </td>

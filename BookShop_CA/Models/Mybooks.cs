@@ -38,6 +38,10 @@ namespace BookShop_CA.Models
             modelBuilder.Entity<Transaction>()
                 .Property(e => e.CustomerName)
                 .IsUnicode(false);
+
+            modelBuilder.Entity<Transaction>()
+                .Property(e => e.ContactNumber)
+                .IsFixedLength();
         }
     }
 }
