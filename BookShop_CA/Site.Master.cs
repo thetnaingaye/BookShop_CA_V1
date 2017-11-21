@@ -16,6 +16,7 @@ namespace BookShop_CA
           if(Page.User.IsInRole("owner"))
             {
                 owner.Visible = true;
+                owner_addbook.Visible = true;
                 login_menu.Visible = false;
                 signup_menu.Visible = false;
                 Label_user.Text = "You are currently logged in as owner role : " + Page.User.Identity.Name;

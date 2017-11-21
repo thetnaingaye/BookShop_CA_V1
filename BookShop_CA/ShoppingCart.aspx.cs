@@ -47,7 +47,7 @@ namespace BookShop_CA
 
         protected void BtnCheckout_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Checkout.aspx");
+            Response.Redirect("~/secret/Checkout.aspx");
         }
     }
 }

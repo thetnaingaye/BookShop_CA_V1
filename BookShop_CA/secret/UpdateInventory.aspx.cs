@@ -15,7 +15,7 @@ namespace BookShop_CA.secret
             if (!IsPostBack)
             {
                 BindGrid();
-                Label1.Text = "Your are logged in as" + String.Format(User.IsInRole("owner")? "Owner" : "Agent");
+                //Label1.Text = "Your are logged in as" + String.Format(User.IsInRole("owner")? "Owner" : "Agent");
             }
         }
 

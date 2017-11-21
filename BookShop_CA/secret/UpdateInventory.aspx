@@ -1,7 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="UpdateInventory.aspx.cs" Inherits="BookShop_CA.secret.Default" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+    <asp:Label ID="Label1" runat="server"></asp:Label>
     <div>
         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" Width="100%"
             DataKeyNames="BookID"

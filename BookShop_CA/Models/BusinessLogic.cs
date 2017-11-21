@@ -79,6 +79,14 @@ namespace BookShop_CA.Models
             }
         }
 
+        public static int GetBookID(string ISBN)
+        {
+            using(Mybooks entities = new Mybooks())
+            {
+                return entities.Books.Where(b => b.ISBN == ISBN).Select(b => b.BookID).First();
+            }
+        }
+
         public static List<Category> BookCategory()
         {
             using (Mybooks entities = new Mybooks())
