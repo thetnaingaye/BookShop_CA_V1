@@ -1,8 +1,18 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="Checkout.aspx.cs" Inherits="BookShop_CA.Checkout" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Checkout.aspx.cs" Inherits="BookShop_CA.Checkout" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+<!DOCTYPE html>
 
-
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <style type="text/css">
+        .auto-style1 {
+            width: 141px;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
     <div>
             <h5>Customer Details:</h5>
         <table>
@@ -66,8 +76,10 @@
                     <asp:Label ID="LblPrice" runat="server" Text='<%# Bind("Price") %>'></asp:Label>
                 </ItemTemplate>
             </asp:TemplateField>
+            
             </Columns>
         </asp:GridView>
+        <asp:Label ID="lblDiscount" runat="server" Text="Label" Visible="False"></asp:Label>
         <br />
        
         <br />
@@ -78,7 +90,7 @@
                        <asp:Label ID="LblTotalAmount" runat="server" Text="Total Amount:"></asp:Label>  
                    </td>
                    <td>
-                       <asp:TextBox ID="txtTotalAmount" runat="server"></asp:TextBox>
+                       <asp:TextBox ID="txtTotalAmount" runat="server" ReadOnly="True"></asp:TextBox>
                    </td>
                </tr>
            </table>
@@ -86,12 +98,21 @@
 
         </div>
 
+        <asp:Label ID="lblDiscountedPrice" runat="server" Text="Discount" Visible="False"></asp:Label>
+        <asp:TextBox ID="txtDiscount" runat="server" Visible="False" ReadOnly="True"></asp:TextBox>
+
         <br />
+        <asp:Label ID="lblFinalPrice" runat="server" Text="Final Price"></asp:Label>
+        <asp:TextBox ID="txtFinalPrice" runat="server" ReadOnly="True"></asp:TextBox>
         <br />
   
       <asp:Button ID="Button1" runat="server" Text="Confirm Transaction" Width="148px" OnClick="Button1_Click" />
      
-
-
     
-</asp:Content>
+        <p>
+            &nbsp;</p>
+        
+        <asp:Label ID="lblRedirect" runat="server" Text="Checkout Successful! You will be redirected to the main page in a few seconds..." Visible="False"></asp:Label>
+    </form>
+</body>
+</html>

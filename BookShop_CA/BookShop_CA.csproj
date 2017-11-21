@@ -113,7 +113,6 @@
     </Content>
     <Content Include="secret\AddBook.aspx" />
     <Content Include="secret\Checkout.aspx" />
-    <Content Include="secret\CheckoutSuccessful.aspx" />
     <Content Include="ShoppingCart.aspx" />
     <Content Include="SignUp.aspx" />
     <Content Include="Site.Master" />
@@ -260,13 +259,6 @@
     </Compile>
     <Compile Include="secret\Checkout.aspx.designer.cs">
       <DependentUpon>Checkout.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="secret\CheckoutSuccessful.aspx.cs">
-      <DependentUpon>CheckoutSuccessful.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="secret\CheckoutSuccessful.aspx.designer.cs">
-      <DependentUpon>CheckoutSuccessful.aspx</DependentUpon>
     </Compile>
     <Compile Include="secret\Sales.aspx.cs">
       <DependentUpon>Sales.aspx</DependentUpon>

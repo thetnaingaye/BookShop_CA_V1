@@ -14,13 +14,11 @@ namespace BookShop_CA
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            List<Book> temp = (List<Book>)Session["CartList"];
             if (Session["CartList"] != null)
             {
-                List<Book> temp = (List<Book>)Session["CartList"];
                 int count = temp.Count;
-                if (Page.IsPostBack)
-                    Label_cartitem.Text = String.Format("({0})", count + 1);
-                Label_cartitem.Text = count.ToString();
+                Label_cartitem.Text = string.Format("({0})", count);
             }
 
             if (Page.User.IsInRole("owner"))
