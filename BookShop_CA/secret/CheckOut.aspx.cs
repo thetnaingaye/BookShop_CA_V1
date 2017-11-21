@@ -88,7 +88,7 @@ namespace BookShop_CA
 			
 			
 			
-			Response.AddHeader("REFRESH","10; URL=Default.aspx");
+			Response.AddHeader("REFRESH","10; URL=../Default.aspx");
 			blist = ClearFieldAndReturnEmptyList();
 			Session["CartList"] = blist;
 

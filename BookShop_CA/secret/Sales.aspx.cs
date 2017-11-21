@@ -47,9 +47,6 @@ namespace BookShop_CA.secret
 
         }
 
-        protected void BtnCancel_Click(object sender, EventArgs e)
-        {
-                Response.Redirect(prevPage);
-        }
+
     }
 }

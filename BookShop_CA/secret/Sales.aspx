@@ -49,7 +49,6 @@
                 <td colspan="2" class="w3-center">
                     <asp:Button ID="BtnSubmit" CssClass="btn" BorderColor="#333333" runat="server" Text="Submit" OnClick="BtnSubmit_Click" />
                     <asp:PlaceHolder ID="PlaceHolder1" runat="server"></asp:PlaceHolder>
-                    <asp:Button ID="BtnCancel" CssClass="btn" BorderColor="#333333" runat="server" Text="Cancel" OnClick="BtnCancel_Click" />
                 </td>
             </tr>
             <tr>
