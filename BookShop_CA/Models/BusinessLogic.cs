@@ -135,32 +135,6 @@ namespace BookShop_CA.Models
             }
 
         }
-        public static decimal GetShoppingCartPrice(List<Book> shoppingCart)
-        {
-            using (Mybooks entities = new Mybooks())
-            {
-                decimal totalPrice = 0;
-                foreach (Book book in shoppingCart)
-                {
-                    totalPrice += book.Price;
-                }
-                return totalPrice;
-            }
-        }
 
-        public static decimal CalculateCartDiscount(decimal totalPrice)
-        {
-            using (Mybooks entitites = new Mybooks())
-            {
-                Discount discount = entitites.Discounts.First();
-                if (discount.PercentageDiscount != 0 && (DateTime.Today >= discount.StartDate && DateTime.Today <= discount.EndDate))
-                {
-                    return totalPrice * (decimal)entitites.Discounts.Select(x => x.PercentageDiscount).First();
-
-                }
-                return 0;
-            }
-
-        }
     }
 }

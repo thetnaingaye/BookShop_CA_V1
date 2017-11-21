@@ -10,29 +10,65 @@ namespace BookShop_CA
 {
     public partial class Checkout : System.Web.UI.Page
     {
-        List<Book> bookCart;
+        List<Book> blist;
         protected void Page_Load(object sender, EventArgs e)
         {
             lblRedirect.Visible = false;
+
+
             if (!IsPostBack)
             {
                 BindGrid();
-                DisplayCartPrice();
-
-                if (Session["CartList"] == null)
-                {
-                    Response.Redirect("../BookDisplayPage.aspx");
-                }
 
             }
+            decimal totalPrice = 0;
+            blist = (List<Book>)Session["CartList"];
+            Mybooks context = new Mybooks();
+            //float discountPer=context.PercentageDiscount
+            Discount discount = context.Discounts.ToList()[0];
 
+
+
+
+            foreach (Book B in blist)
+            {
+
+                totalPrice += B.Price;
+            }
+            txtTotalAmount.Text = Convert.ToString((String.Format("{0:c}", totalPrice)));
+            if (blist != null)
+            {
+                Button1.Visible = true;
+                if (discount.PercentageDiscount != 0 && (DateTime.Today >= discount.StartDate && DateTime.Today <= discount.EndDate))
+                {
+
+                    lblDiscount.Text = discount.PercentageDiscount + "% off your purchase!";
+                    lblDiscount.Visible = true;
+                    txtDiscount.Text = Convert.ToString(String.Format("{0:c}", (totalPrice * (Convert.ToDecimal(discount.PercentageDiscount)) / 100)));
+                    txtFinalPrice.Text = Convert.ToString(String.Format("{0:c}", (totalPrice * (100 - Convert.ToDecimal(discount.PercentageDiscount)) / 100)));
+                    lblDiscountedPrice.Visible = true;
+                    txtDiscount.Visible = true;
+
+                }
+                else
+                {
+                    txtFinalPrice.Text = totalPrice.ToString();
+                }
+            }
+            else
+            {
+                Button1.Visible = false;
+            }
         }
+
+
+
 
         protected void BindGrid()
         {
-            bookCart = (List<Book>)Session["CartList"];
+            blist = (List<Book>)Session["CartList"];
 
-            GridView1.DataSource = bookCart;
+            GridView1.DataSource = blist;
             GridView1.DataBind();
         }
 
@@ -40,21 +76,21 @@ namespace BookShop_CA
         {
 
 
-            bookCart = (List<Book>)Session["CartList"];
+            blist = (List<Book>)Session["CartList"];
             string firstName = TxtFirstName.Text;
             string lastName = TxtLastName.Text;
             string address = txtAddress.Text;
             string contactNum = TxtContactNum.Text;
-            BusinessLogic.AddTransaction(bookCart, firstName, lastName, address, contactNum);
+            BusinessLogic.AddTransaction(blist, firstName, lastName, address, contactNum);
 
             lblRedirect.Visible = true;
             Button1.Visible = false;
 
 
 
-            Response.AddHeader("REFRESH", "10; URL=Default.aspx");
-            bookCart = ClearFieldAndReturnEmptyList();
-            Session["CartList"] = bookCart;
+            Response.AddHeader("REFRESH", "10; URL=../Default.aspx");
+            blist = ClearFieldAndReturnEmptyList();
+            Session["CartList"] = blist;
 
 
 
@@ -74,24 +110,6 @@ namespace BookShop_CA
             txtDiscount.Text = string.Empty;
             List<Book> newlist = new List<Book>();
             return newlist;
-        }
-
-        protected void DisplayCartPrice()
-        {
-            bookCart = (List<Book>)Session["CartList"];
-            txtTotalAmount.Text =
-                string.Format("{0:c}", BusinessLogic.GetShoppingCartPrice(bookCart).ToString());
-            Discount discount = BusinessLogic.GetDiscount();
-
-            lblDiscount.Text = discount.PercentageDiscount.ToString() + "% off your purchase!";
-            lblDiscount.Visible = true;
-            txtDiscount.Text =
-                string.Format("{0}:c", BusinessLogic.CalculateCartDiscount(BusinessLogic.GetShoppingCartPrice(bookCart)).ToString());
-            if (txtDiscount.Text != "0")
-                txtDiscount.Visible = true;
-            txtFinalPrice.Text =
-                string.Format("{0:c}", decimal.Parse(txtTotalAmount.Text) - decimal.Parse(txtDiscount.Text));
-            lblDiscountedPrice.Visible = true;
         }
 
     }
