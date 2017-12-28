@@ -1,7 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true"  MasterPageFile="~/Site.Master"  CodeBehind="Sales.aspx.cs" Inherits="BookShop_CA.secret.WebForm1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
+  <%--  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>--%>
 
 
     <div style="width:800px; margin-left:auto; margin-right:auto">
@@ -37,23 +37,34 @@
                     </asp:Calendar>
                 </td>
             </tr>
+   
             <tr>
-                <td class="w3-right-align">
-                    <asp:Label ID="Label1" runat="server" Text="Discount Percentage: "></asp:Label>
+                <td >
+                    &nbsp;</td>
+                <td>
+                    &nbsp;</td>
+            </tr>
+   
+            <tr>
+                <td >
+                    <div class="text-right">
+                    <asp:Label ID="Label1"  runat="server" Text="Set Discount Percentage: "></asp:Label>
+
+                    </div>
                     </td>
                 <td>
                     <asp:TextBox ID="TxtBoxDiscount" runat="server" CssClass="form-control"></asp:TextBox>
                 </td>
             </tr>
             <tr>
-                <td colspan="2" class="w3-center">
+                <td colspan="2" class="text-right">
+                    <br />
                     <asp:Button ID="BtnSubmit" CssClass="btn" BorderColor="#333333" runat="server" Text="Submit" OnClick="BtnSubmit_Click" />
                     <asp:PlaceHolder ID="PlaceHolder1" runat="server"></asp:PlaceHolder>
-                    <asp:Button ID="BtnCancel" CssClass="btn" BorderColor="#333333" runat="server" Text="Cancel" OnClick="BtnCancel_Click" />
                 </td>
             </tr>
             <tr>
-                <td colspan="2" class="w3-center">
+                <td colspan="2" >
                     <asp:Label ID="LabelStatus" runat="server" ForeColor="red" Text=""></asp:Label>
                 </td>
             </tr>

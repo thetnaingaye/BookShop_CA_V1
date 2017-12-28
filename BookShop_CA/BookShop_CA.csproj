@@ -24,6 +24,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -86,6 +87,8 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
     <Reference Include="System.Transactions" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -113,10 +116,22 @@
     </Content>
     <Content Include="secret\AddBook.aspx" />
     <Content Include="secret\Checkout.aspx" />
+    <Content Include="Service.svc" />
     <Content Include="ShoppingCart.aspx" />
     <Content Include="SignUp.aspx" />
     <Content Include="Site.Master" />
     <Content Include="secret\Web.config" />
+    <Content Include="Models\MybooksDataset.xsc">
+      <DependentUpon>MybooksDataset.xsd</DependentUpon>
+    </Content>
+    <None Include="Models\MybooksDataset.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MybooksDataset.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Models\MybooksDataset.xss">
+      <DependentUpon>MybooksDataset.xsd</DependentUpon>
+    </Content>
     <None Include="Properties\PublishProfiles\ASP.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -184,7 +199,9 @@
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="secret\Sales.aspx" />
     <Content Include="secret\UpdateInventory.aspx" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BookDetails.aspx.cs">
@@ -232,6 +249,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="IService.cs" />
     <Compile Include="login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -244,6 +262,12 @@
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Discount.cs" />
     <Compile Include="Models\Mybooks.cs" />
+    <Compile Include="Models\MybooksDataset.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MybooksDataset.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SearchSupport.cs" />
     <Compile Include="Models\Transaction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="secret\AddBook.aspx.cs">
@@ -274,6 +298,9 @@
     <Compile Include="secret\UpdateInventory.aspx.designer.cs">
       <DependentUpon>UpdateInventory.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Service.svc.cs">
+      <DependentUpon>Service.svc</DependentUpon>
+    </Compile>
     <Compile Include="ShoppingCart.aspx.cs">
       <DependentUpon>ShoppingCart.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -296,7 +323,9 @@
       <DependentUpon>Site.Master</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

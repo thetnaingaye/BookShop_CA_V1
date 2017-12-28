@@ -24,8 +24,8 @@ namespace BookShop_CA
 			decimal totalPrice = 0;
 			blist = (List<Book>)Session["CartList"];
 			Mybooks context = new Mybooks();
-			//float discountPer=context.PercentageDiscount
-			 Discount discount = context.Discounts.ToList()[0];
+            //float discountPer=context.PercentageDiscount
+            Discount discount = context.Discounts.ToList().First() ;
 			
 			
 
@@ -88,7 +88,7 @@ namespace BookShop_CA
 			
 			
 			
-			Response.AddHeader("REFRESH","10; URL=Default.aspx");
+			Response.AddHeader("REFRESH","10; URL=../Default.aspx");
 			blist = ClearFieldAndReturnEmptyList();
 			Session["CartList"] = blist;
 

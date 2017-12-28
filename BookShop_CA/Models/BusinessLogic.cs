@@ -135,5 +135,13 @@ namespace BookShop_CA.Models
             }
 
         }
+
+        public static Book GetBookByTitle(string isbn)
+        {
+            using (Mybooks entities = new Mybooks())
+            {
+                return entities.Books.Where(b => b.ISBN == isbn).First();
+            }
+        }
     }
 }
