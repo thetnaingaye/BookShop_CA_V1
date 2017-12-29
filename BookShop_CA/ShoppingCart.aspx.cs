@@ -21,7 +21,9 @@ namespace BookShop_CA
                     BtnCheckout.Visible = false;
                     LabelStatus.Text = "There is no item in shopping cart. Please visit book page to add items to cart";
                 }
+
             }
+
 
         }
 
@@ -39,6 +41,9 @@ namespace BookShop_CA
             List<Book> bList2 = BusinessLogic.DeleteOrder(currentList, bookID);
             BindGrid();
             Session["CartList"] = bList2;
+        
+            Label cartUpdate = Master.FindControl("Label_cartitem") as Label;
+            cartUpdate.Text = string.Format("({0})", bList2.Count);
         }
 
 
