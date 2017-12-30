@@ -16,13 +16,14 @@ namespace BookShop_CA
             if (!IsPostBack)
             {
                 BindGrid();
-                if(Session["CartList"] == null)
-                {
-                    BtnCheckout.Visible = false;
-                    LabelStatus.Text = "There is no item in shopping cart. Please visit book page to add items to cart";
-                }
 
             }
+            if (blist == null || blist.Count == 0)
+            {
+                BtnCheckout.Visible = false;
+                LabelStatus.Text = "There is no item in shopping cart. Please visit book page to add items to cart";
+            }
+
 
 
         }
@@ -44,6 +45,11 @@ namespace BookShop_CA
         
             Label cartUpdate = Master.FindControl("Label_cartitem") as Label;
             cartUpdate.Text = string.Format("({0})", bList2.Count);
+            if(bList2.Count == 0)
+            {
+                BtnCheckout.Visible = false;
+                LabelStatus.Text = "There is no item in shopping cart. Please visit book page to add items to cart";
+            }
         }
 
 
